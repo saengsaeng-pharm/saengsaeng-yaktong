@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">생생약통</string>
+    <string name="label_sign_in">로그인</string>
+    <string name="label_sign_up">회원가입</string>
+
+    <string name="title_home">홈</string>
+    <string name="title_community">커뮤니티</string>
+    <string name="title_profile">프로필</string>
+    <string name="label_login">로그인</string>
+    <string name="label_complete">완료</string>
+
+    <string name="date_format">yyyy년 M월 d일</string>
+    <string name="date_picker_format">yyyy.M.d</string>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "304750808898",
+    "project_id": "saengsaeng-yaktong",
+    "storage_bucket": "saengsaeng-yaktong.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304750808898:android:87e63ed6cd467735c7c2db",
+        "android_client_info": {
+          "package_name": "kr.ac.cbnu.saengsaengyaktong"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304750808898-37537pemnuvvd90ojoscuonltkm2348t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHTTI4GfZVp6PfPM8klxEKmnNtSnYvdRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304750808898-37537pemnuvvd90ojoscuonltkm2348t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
