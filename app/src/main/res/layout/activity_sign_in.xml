@@ -61,9 +61,6 @@
                 android:text="@={viewModel.password}" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="24dp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -85,10 +82,73 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="end"
+                android:elevation="2dp"
                 android:enabled="@{viewModel.email.length() > 0 &amp;&amp; viewModel.password.length() > 0}"
                 android:onClick="onSignInClick"
                 android:text="@string/label_login"
                 app:icon="@drawable/baseline_key_24" />
         </RelativeLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="24dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                style="?attr/materialIconButtonFilledStyle"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:backgroundTint="@color/kakao"
+                android:elevation="2dp"
+                app:icon="@drawable/kakao"
+                app:iconGravity="textStart"
+                app:iconTint="@null" />
+
+            <Space
+                android:layout_width="4dp"
+                android:layout_height="0dp" />
+
+            <Button
+                style="?attr/materialIconButtonFilledStyle"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:backgroundTint="@color/naver"
+                android:elevation="2dp"
+                app:icon="@drawable/naver"
+                app:iconGravity="textStart"
+                app:iconTint="@null" />
+
+            <Space
+                android:layout_width="4dp"
+                android:layout_height="0dp" />
+
+            <Button
+                style="?attr/materialIconButtonFilledStyle"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:backgroundTint="@color/facebook"
+                android:elevation="2dp"
+                app:icon="@drawable/facebook"
+                app:iconGravity="textStart"
+                app:iconTint="@null" />
+
+            <Space
+                android:layout_width="4dp"
+                android:layout_height="0dp" />
+
+            <Button
+                style="?attr/materialIconButtonFilledStyle"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:backgroundTint="@color/white"
+                android:elevation="2dp"
+                app:icon="@drawable/google"
+                app:iconGravity="textStart"
+                app:iconTint="@null" />
+
+        </LinearLayout>
     </LinearLayout>
 </layout>

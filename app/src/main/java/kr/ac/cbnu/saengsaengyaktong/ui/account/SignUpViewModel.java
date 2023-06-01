@@ -4,23 +4,23 @@ import static androidx.lifecycle.SavedStateHandleSupport.createSavedStateHandle;
 import static androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY;
 
 import android.app.Application;
+import android.text.TextUtils;
+import android.util.Patterns;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.viewmodel.ViewModelInitializer;
 
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
-import kr.ac.cbnu.saengsaengyaktong.model.GenderType;
+import kr.ac.cbnu.saengsaengyaktong.domain.entity.GenderType;
+import kr.ac.cbnu.saengsaengyaktong.domain.repository.UserProfilesRepository;
 
 public class SignUpViewModel extends ViewModel {
     private static final String EMAIL_KEY = "email";
@@ -32,13 +32,29 @@ public class SignUpViewModel extends ViewModel {
     private static final String AGREEMENT_KEY = "agreement";
 
     private final SavedStateHandle handle;
-
     private final FirebaseAuth auth = FirebaseAuth.getInstance();
-    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public SignUpViewModel(SavedStateHandle state) {
         this.handle = state;
         setGender(GenderType.MALE);
+    }
+
+    public boolean isEmailValid() {
+        System.out.println("isEmailValid()");
+        final String email = getEmail().getValue();
+        return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    public boolean isPasswordValid() {
+        System.out.println("isPasswordValid()");
+        final String password = getPassword().getValue();
+        return !TextUtils.isEmpty(password) && password.length() >= 6;
+    }
+
+    public boolean isPasswordConfirmValid() {
+        System.out.println("isPasswordConfirmValid()");
+        final String passwordConfirm = getPasswordConfirm().getValue();
+        return !TextUtils.isEmpty(passwordConfirm) && passwordConfirm.equals(getPassword().getValue());
     }
 
     public MutableLiveData<String> getEmail() {
@@ -57,11 +73,11 @@ public class SignUpViewModel extends ViewModel {
         return handle.getLiveData(NAME_KEY);
     }
 
-    public MutableLiveData<Date> getBirthDate() {
+    public LiveData<Date> getBirthDate() {
         return handle.getLiveData(BIRTH_DATE_KEY);
     }
 
-    public MutableLiveData<GenderType> getGender() {
+    public LiveData<GenderType> getGender() {
         return handle.getLiveData(GENDER_KEY);
     }
 
@@ -101,16 +117,17 @@ public class SignUpViewModel extends ViewModel {
         final String email = getEmail().getValue();
         final String password = getPassword().getValue();
 
-        return auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
-            final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        return auth.createUserWithEmailAndPassword(email, password);
+    }
 
-            final Map<String, Object> data = new HashMap<>();
-            data.put("name", getName().getValue());
-            data.put("birth_date", new Timestamp(getBirthDate().getValue()));
-            data.put("gender", getGender().getValue().name().toLowerCase());
+    public Task<Void> registerProfile() {
+        final UserProfilesRepository repository = UserProfilesRepository.getInstance();
 
-            db.collection("user_profiles").document(uid).set(data);
-        });
+        final String name = getName().getValue();
+        final Date birthDate = getBirthDate().getValue();
+        final GenderType gender = getGender().getValue();
+
+        return repository.add(name, birthDate, gender);
     }
 
     public static final ViewModelInitializer<SignUpViewModel> initializer = new ViewModelInitializer<>(

@@ -4,21 +4,17 @@ import static androidx.lifecycle.SavedStateHandleSupport.createSavedStateHandle;
 import static androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY;
 
 import android.app.Application;
+import android.text.TextUtils;
+import android.util.Patterns;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.viewmodel.ViewModelInitializer;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class SignInViewModel extends ViewModel {
     private static final String EMAIL_KEY = "email";
@@ -30,6 +26,16 @@ public class SignInViewModel extends ViewModel {
 
     public SignInViewModel(SavedStateHandle state) {
         this.handle = state;
+    }
+
+    public boolean isEmailValid() {
+        final String email = getEmail().getValue();
+        return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    public boolean isPasswordValid() {
+        final String password = getPassword().getValue();
+        return !TextUtils.isEmpty(password) && password.length() >= 6;
     }
 
     public MutableLiveData<String> getEmail() {

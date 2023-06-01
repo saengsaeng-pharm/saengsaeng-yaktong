@@ -1,4 +1,4 @@
-package kr.ac.cbnu.saengsaengyaktong.ai;
+package kr.ac.cbnu.saengsaengyaktong.ui.recognition;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -22,12 +22,12 @@ public class ObjectDetectorHelper {
     public static final int DELEGATE_GPU = 1;
     public static final int DELEGATE_NNAPI = 2;
 
-    private float threshold = 0.5f;
-    private int numThreads = 2;
-    private int maxResults = 3;
-    private int currentDelegate = 0;
-    private Context context;
-    private DetectorListener objectDetectorListener;
+    private final float threshold = 0.5f;
+    private final int numThreads = 2;
+    private final int maxResults = 3;
+    private final int currentDelegate = 0;
+    private final Context context;
+    private final DetectorListener objectDetectorListener;
     private ObjectDetector objectDetector = null;
 
     public ObjectDetectorHelper(Context context, DetectorListener objectDetectorListener) {

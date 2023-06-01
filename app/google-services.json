@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "304750808898-v5j0etms10s4tcaib9i6rltifummqe18.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.ac.cbnu.saengsaengyaktong",
+            "certificate_hash": "763df75ca2078eec65690fd300a5d39595339ff9"
+          }
+        },
+        {
           "client_id": "304750808898-37537pemnuvvd90ojoscuonltkm2348t.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -1,4 +1,4 @@
-package kr.ac.cbnu.saengsaengyaktong.model;
+package kr.ac.cbnu.saengsaengyaktong.domain.entity;
 
 import androidx.annotation.NonNull;
 

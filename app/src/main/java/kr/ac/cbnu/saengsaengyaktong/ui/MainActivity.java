@@ -1,4 +1,4 @@
-package kr.ac.cbnu.saengsaengyaktong;
+package kr.ac.cbnu.saengsaengyaktong.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import kr.ac.cbnu.saengsaengyaktong.R;
 import kr.ac.cbnu.saengsaengyaktong.databinding.ActivityMainBinding;
 import kr.ac.cbnu.saengsaengyaktong.ui.account.SignInActivity;
 
