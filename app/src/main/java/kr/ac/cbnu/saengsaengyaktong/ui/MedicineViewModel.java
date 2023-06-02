@@ -4,13 +4,19 @@ import android.widget.ImageView;
 
 import androidx.databinding.BindingAdapter;
 
-import com.squareup.picasso.Picasso;
+import javax.annotation.Nullable;
 
 import kr.ac.cbnu.saengsaengyaktong.domain.entity.MedicinePlan;
 import kr.ac.cbnu.saengsaengyaktong.domain.entity.MedicineRecord;
+import kr.ac.cbnu.saengsaengyaktong.domain.repository.MedicineRecordsRepository;
 
 public class MedicineViewModel {
+
+    private static final MedicineRecordsRepository repository = MedicineRecordsRepository.getInstance();
+
     private final MedicinePlan plan;
+
+    @Nullable
     private final MedicineRecord record;
 
     public MedicineViewModel(MedicinePlan plan, MedicineRecord record) {
@@ -35,21 +41,17 @@ public class MedicineViewModel {
     }
 
     public boolean getBreakfast() {
+        if (record == null) return false;
         return record.getBreakfast() != null;
     }
 
     public boolean getLunch() {
+        if (record == null) return false;
         return record.getLunch() != null;
     }
 
     public boolean getDinner() {
+        if (record == null) return false;
         return record.getDinner() != null;
-    }
-
-    @BindingAdapter({"bind:imageUrl"})
-    public static void loadImage(ImageView view, String imageUrl) {
-        Picasso.get()
-                .load(imageUrl)
-                .into(view);
     }
 }

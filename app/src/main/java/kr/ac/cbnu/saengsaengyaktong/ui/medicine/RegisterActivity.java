@@ -1,4 +1,4 @@
-package kr.ac.cbnu.saengsaengyaktong.ui;
+package kr.ac.cbnu.saengsaengyaktong.ui.medicine;
 
 import android.os.Bundle;
 
@@ -8,20 +8,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
-import androidx.core.view.WindowCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import kr.ac.cbnu.saengsaengyaktong.databinding.ActivityTestBinding;
-
 import kr.ac.cbnu.saengsaengyaktong.R;
 
-public class TestActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
-    private ActivityTestBinding binding;
+    /*private ActivityTestBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,5 +48,5 @@ public class TestActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_test);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
-    }
+    }*/
 }

@@ -20,7 +20,6 @@ import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -29,7 +28,6 @@ import java.util.concurrent.Executors;
 
 import org.tensorflow.lite.task.vision.detector.Detection;
 
-import kr.ac.cbnu.saengsaengyaktong.R;
 import kr.ac.cbnu.saengsaengyaktong.databinding.FragmentCameraBinding;
 
 public class CameraFragment extends Fragment implements ObjectDetectorHelper.DetectorListener {

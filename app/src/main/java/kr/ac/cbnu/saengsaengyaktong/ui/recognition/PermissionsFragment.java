@@ -11,9 +11,6 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
-import androidx.navigation.Navigation;
-
-import kr.ac.cbnu.saengsaengyaktong.R;
 
 public class PermissionsFragment extends Fragment {
     private static final String[] PERMISSIONS_REQUIRED = new String[]{Manifest.permission.CAMERA};

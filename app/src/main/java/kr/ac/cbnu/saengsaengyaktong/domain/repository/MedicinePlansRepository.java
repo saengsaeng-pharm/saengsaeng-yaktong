@@ -1,4 +1,4 @@
-package kr.ac.cbnu.saengsaengyaktong.domain.entity.repository;
+package kr.ac.cbnu.saengsaengyaktong.domain.repository;
 
 import com.google.android.gms.tasks.Task;
 import com.google.common.collect.Lists;

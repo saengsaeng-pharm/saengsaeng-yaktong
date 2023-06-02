@@ -7,18 +7,24 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="kr.ac.cbnu.saengsaengyaktong.ui.home.TodayFragment"
+        android:name="kr.ac.cbnu.saengsaengyaktong.ui.medicine.MedicineListFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_today" />
+        tools:layout="@layout/fragment_medicine_list" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="kr.ac.cbnu.saengsaengyaktong.ui.dashboard.DashboardFragment"
-        android:label="@string/title_home"
+        android:id="@+id/navigation_map"
+        android:name="kr.ac.cbnu.saengsaengyaktong.ui.map.MapFragment"
+        android:label="@string/title_map"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_community"
+        android:name="kr.ac.cbnu.saengsaengyaktong.ui.notifications.NotificationsFragment"
+        android:label="@string/title_community"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
         android:name="kr.ac.cbnu.saengsaengyaktong.ui.notifications.NotificationsFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_notifications" />

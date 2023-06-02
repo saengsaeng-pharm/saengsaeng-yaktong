@@ -1,4 +1,4 @@
-package kr.ac.cbnu.saengsaengyaktong.ui;
+package kr.ac.cbnu.saengsaengyaktong.ui.medicine;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import kr.ac.cbnu.saengsaengyaktong.databinding.MedicineCheckItemBinding;
+import kr.ac.cbnu.saengsaengyaktong.ui.MedicineViewModel;
 
 public class MedicineListAdapter extends ListAdapter<MedicineViewModel, MedicineListAdapter.ViewHolder> {
     private static final String TAG = "MedicineListAdapter";
@@ -34,7 +35,7 @@ public class MedicineListAdapter extends ListAdapter<MedicineViewModel, Medicine
         void onClick(MedicineViewModel item);
     }
 
-    protected MedicineListAdapter() {
+    public MedicineListAdapter() {
         super(DIFF_CALLBACK);
     }
 
