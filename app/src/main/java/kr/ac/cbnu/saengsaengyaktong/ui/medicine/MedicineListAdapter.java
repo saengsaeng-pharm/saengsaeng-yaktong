@@ -62,7 +62,7 @@ public class MedicineListAdapter extends ListAdapter<MedicineViewModel, Medicine
         return viewHolder;
     }
 
-    public List<MedicineViewModel> getItems() {
+    public List<? extends MedicineViewModel> getItems() {
         return getCurrentList();
     }
 

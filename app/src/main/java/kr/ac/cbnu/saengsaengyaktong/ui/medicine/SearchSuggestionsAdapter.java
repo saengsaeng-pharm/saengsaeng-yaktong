@@ -1,6 +1,5 @@
 package kr.ac.cbnu.saengsaengyaktong.ui.medicine;
 
-
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -11,47 +10,52 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import kr.ac.cbnu.saengsaengyaktong.api.DrugItem;
-import kr.ac.cbnu.saengsaengyaktong.databinding.DrugSearchSuggestionItemBinding;
+import kr.ac.cbnu.saengsaengyaktong.databinding.SearchSuggestionItemBinding;
 
-public class SearchSuggestionsAdapter extends ListAdapter<DrugItem, SearchSuggestionsAdapter.ViewHolder> {
-    private static final String TAG = "SearchSuggestionsAdapter";
-
+public class SearchSuggestionsAdapter extends ListAdapter<SearchSuggestion, SearchSuggestionsAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final DrugSearchSuggestionItemBinding binding;
-        private DrugItem item;
+        private final SearchSuggestionItemBinding binding;
+        private SearchSuggestion item;
 
-        public ViewHolder(DrugSearchSuggestionItemBinding binding) {
+        public ViewHolder(SearchSuggestionItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }
 
-        protected void setViewModel(DrugItem item) {
+        protected void setItem(SearchSuggestion item) {
             this.item = item;
             binding.setItem(item);
         }
     }
 
     public interface OnClickListener {
-        void onClick(DrugItem item);
+        void onClick(SearchSuggestion item);
     }
+
+    private OnClickListener onClickListener;
 
     public SearchSuggestionsAdapter() {
         super(DIFF_CALLBACK);
     }
 
-    private OnClickListener onClickListener;
+    public void setItems(List<? extends SearchSuggestion> items) {
+        submitList((List<SearchSuggestion>) items);
+    }
+
+    public void setOnClickListener(OnClickListener listener) {
+        onClickListener = listener;
+    }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        final DrugItem item = getItem(position);
-        viewHolder.setViewModel(item);
+        final SearchSuggestion item = getItem(position);
+        viewHolder.setItem(item);
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        final DrugSearchSuggestionItemBinding binding = DrugSearchSuggestionItemBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
+        final SearchSuggestionItemBinding binding = SearchSuggestionItemBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup, false);
         final ViewHolder viewHolder = new ViewHolder(binding);
 
         viewHolder.itemView.setOnClickListener(v -> {
@@ -63,23 +67,15 @@ public class SearchSuggestionsAdapter extends ListAdapter<DrugItem, SearchSugges
         return viewHolder;
     }
 
-    public List<DrugItem> getItems() {
-        return getCurrentList();
-    }
-
-    public void setOnClickListener(OnClickListener listener) {
-        onClickListener = listener;
-    }
-
-    public static final DiffUtil.ItemCallback<DrugItem> DIFF_CALLBACK =
-            new DiffUtil.ItemCallback<DrugItem>() {
+    public static final DiffUtil.ItemCallback<SearchSuggestion> DIFF_CALLBACK =
+            new DiffUtil.ItemCallback<SearchSuggestion>() {
                 @Override
-                public boolean areItemsTheSame(@NonNull DrugItem oldItem, @NonNull DrugItem newItem) {
+                public boolean areItemsTheSame(@NonNull SearchSuggestion oldItem, @NonNull SearchSuggestion newItem) {
                     return oldItem.getId().equals(newItem.getId());
                 }
 
                 @Override
-                public boolean areContentsTheSame(@NonNull DrugItem oldItem, @NonNull DrugItem newItem) {
+                public boolean areContentsTheSame(@NonNull SearchSuggestion oldItem, @NonNull SearchSuggestion newItem) {
                     return oldItem.getId().equals(newItem.getId()); // should be fixed
                 }
             };

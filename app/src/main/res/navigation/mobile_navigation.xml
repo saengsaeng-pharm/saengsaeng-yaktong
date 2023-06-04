@@ -12,16 +12,16 @@
         tools:layout="@layout/fragment_medicine_list" />
 
     <fragment
-        android:id="@+id/navigation_map"
-        android:name="kr.ac.cbnu.saengsaengyaktong.ui.map.MapFragment"
-        android:label="@string/title_map"
-        tools:layout="@layout/fragment_dashboard" />
-
-    <fragment
         android:id="@+id/navigation_community"
         android:name="kr.ac.cbnu.saengsaengyaktong.ui.notifications.NotificationsFragment"
         android:label="@string/title_community"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="kr.ac.cbnu.saengsaengyaktong.ui.nearby.NearbyFragment"
+        android:label="@string/title_nearby"
+        tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_profile"

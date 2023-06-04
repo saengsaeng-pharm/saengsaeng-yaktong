@@ -4,7 +4,7 @@
     <string name="label_sign_up">회원가입</string>
 
     <string name="title_home">홈</string>
-    <string name="title_map">지도</string>
+    <string name="title_nearby">주변 정보</string>
     <string name="title_community">커뮤니티</string>
     <string name="title_profile">프로필</string>
 
@@ -61,4 +61,5 @@
     <string name="title_activity_main2">MainActivity2</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_activity_health_supplement_food">HealthSupplementFoodActivity</string>
 </resources>

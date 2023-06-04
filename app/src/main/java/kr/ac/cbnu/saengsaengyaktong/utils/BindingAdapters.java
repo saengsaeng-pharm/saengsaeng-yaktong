@@ -12,21 +12,24 @@ import com.bumptech.glide.RequestBuilder;
 import javax.annotation.Nullable;
 
 public class BindingAdapters {
-    @BindingAdapter({"bind:imageUrl", "bind:imageCropPart", "bind:imagePlaceHolder"})
+    @BindingAdapter(value = {"bind:imageUrl", "bind:imageCropPart", "bind:imagePlaceHolder"}, requireAll = false)
     public static void bindImage(ImageView imageView, String url, @Nullable HalfCropTransformation.CropPart cropPart, @Nullable Drawable imagePlaceHolder) {
-        if (url != null) {
-            final Uri uri = Uri.parse(url).buildUpon().scheme("https").build();
-            RequestBuilder<Drawable> request = Glide.with(imageView).load(uri);
-
-            if (cropPart != null) {
-                request = request.transform(new HalfCropTransformation(cropPart));
-            }
-
-            if (imagePlaceHolder != null) {
-                request = request.placeholder(imagePlaceHolder);
-            }
-
-            request.into(imageView);
+        if (url == null) {
+            imageView.setImageDrawable(imagePlaceHolder);
+            return;
         }
+
+        final Uri uri = Uri.parse(url).buildUpon().scheme("https").build();
+        RequestBuilder<Drawable> request = Glide.with(imageView).load(uri);
+
+        if (cropPart != null) {
+            request = request.transform(new HalfCropTransformation(cropPart));
+        }
+
+        if (imagePlaceHolder != null) {
+            request = request.placeholder(imagePlaceHolder);
+        }
+
+        request.into(imageView);
     }
 }
