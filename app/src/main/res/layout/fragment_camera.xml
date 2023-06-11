@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         app:scaleType="fillStart" />
 
-    <kr.ac.cbnu.saengsaengyaktong.ui.recognition.OverlayView
+    <kr.ac.cbnu.saengsaengyaktong.ui.detection.OverlayView
         android:id="@+id/overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

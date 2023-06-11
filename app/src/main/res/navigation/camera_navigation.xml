@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/permissions_fragment"
-        android:name="kr.ac.cbnu.saengsaengyaktong.ui.recognition.PermissionsFragment"
+        android:name="kr.ac.cbnu.saengsaengyaktong.ui.detection.PermissionsFragment"
         android:label="PermissionsFragment">
 
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/camera_fragment"
-        android:name="kr.ac.cbnu.saengsaengyaktong.ui.recognition.CameraFragment"
+        android:name="kr.ac.cbnu.saengsaengyaktong.ui.detection.CameraFragment"
         android:label="CameraFragment">
 
         <action

@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import kr.ac.cbnu.saengsaengyaktong.domain.entity.MedicineRecord;
 
@@ -38,7 +39,7 @@ public class MedicineRecordsRepository {
         final String userId = FirebaseAuth.getInstance().getUid();
         final QuerySnapshot docs = collection.whereEqualTo(USER_ID_FIELD, userId).get().getResult();
 
-        return Lists.transform(docs.getDocuments(), doc -> doc.toObject(MedicineRecord.class).withId(doc.getId()));
+        return docs.getDocuments().stream().map(doc -> doc.toObject(MedicineRecord.class).withId(doc.getId())).collect(Collectors.toList());
     }
 
     public Task<Void> set(String id, Date date, Date breakfast, Date lunch, Date dinner) {

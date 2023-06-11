@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Nullable;
 
-import kr.ac.cbnu.saengsaengyaktong.ui.medicine.SearchSuggestion;
+import kr.ac.cbnu.saengsaengyaktong.ui.drugs.SearchSuggestion;
 import kr.ac.cbnu.saengsaengyaktong.utils.StringUtils;
 
 public class DrugInfo implements SearchSuggestion, Parcelable {

@@ -3,7 +3,6 @@ package kr.ac.cbnu.saengsaengyaktong.api.health_supplements;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
@@ -11,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import kr.ac.cbnu.saengsaengyaktong.ui.medicine.SearchSuggestion;
+import kr.ac.cbnu.saengsaengyaktong.ui.drugs.SearchSuggestion;
 
 public class FoodInfo implements SearchSuggestion, Parcelable {
     private static final String THUMBNAIL_PREFIX = "https://health-functional-food.s3.ap-northeast-2.amazonaws.com/saved/";

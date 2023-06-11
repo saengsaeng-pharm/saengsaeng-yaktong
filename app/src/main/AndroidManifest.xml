@@ -2,6 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+        <intent>
+            <action android:name="android.speech.action.RECOGNIZE_SPEECH" />
+        </intent>
+    </queries>
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -24,7 +34,7 @@
         tools:replace="android:label"
         tools:targetApi="31">
         <activity
-            android:name=".ui.medicine.MedicinePlanActivity"
+            android:name=".ui.drugs.MedicinePlanActivity"
             android:exported="false"
             android:label="@string/title_activity_test"
             android:theme="@style/Theme.SaengSaengYaktong" />
@@ -55,7 +65,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.medicine.MedicineInfoActivity"
+            android:name=".ui.drugs.MedicineInfoActivity"
             android:exported="false"
             android:label="약 정보"
             android:theme="@style/Theme.SaengSaengYaktong.NoActionBar">
@@ -64,7 +74,7 @@
                 android:value=".ui.MainActivity" />
         </activity>
         <activity
-            android:name=".ui.medicine.FoodInfoActivity"
+            android:name=".ui.foods.FoodInfoActivity"
             android:exported="false"
             android:label="건강기능식품 정보"
             android:theme="@style/Theme.SaengSaengYaktong.NoActionBar">
@@ -73,14 +83,24 @@
                 android:value=".ui.MainActivity" />
         </activity>
         <activity
-            android:name=".ui.RecognitionActivity"
+            android:name=".ui.detection.DrugDetectionActivity"
             android:exported="false"
-            android:label="이미지 인식 추가">
+            android:label="알약 인식">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
         </activity>
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="kr.ac.cbnu.saengsaengyaktong.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="96kmjwxr19" />

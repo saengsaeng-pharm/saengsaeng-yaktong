@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="AppCompatResource">
+    <item
+        android:id="@+id/item_speech"
+        android:icon="@drawable/baseline_mic_24"
+        android:title="음성 인식"
+        app:showAsAction="ifRoom" />
+</menu>

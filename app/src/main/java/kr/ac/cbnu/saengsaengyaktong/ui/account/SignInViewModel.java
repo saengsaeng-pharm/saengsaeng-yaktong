@@ -7,6 +7,7 @@ import android.app.Application;
 import android.text.TextUtils;
 import android.util.Patterns;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
@@ -38,11 +39,11 @@ public class SignInViewModel extends ViewModel {
         return !TextUtils.isEmpty(password) && password.length() >= 6;
     }
 
-    public MutableLiveData<String> getEmail() {
+    public LiveData<String> getEmail() {
         return handle.getLiveData(EMAIL_KEY);
     }
 
-    public MutableLiveData<String> getPassword() {
+    public LiveData<String> getPassword() {
         return handle.getLiveData(PASSWORD_KEY);
     }
 
