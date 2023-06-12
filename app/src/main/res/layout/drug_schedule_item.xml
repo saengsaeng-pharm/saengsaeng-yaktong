@@ -4,27 +4,44 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <import type="kr.ac.cbnu.saengsaengyaktong.utils.HalfCropTransformation" />
+
         <variable
             name="viewModel"
-            type="kr.ac.cbnu.saengsaengyaktong.ui.MedicineViewModel" />
+            type="kr.ac.cbnu.saengsaengyaktong.ui.drugs.DailyDrugRecordViewModel" />
 
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="12dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:scaleType="centerCrop"
+                    app:imageCropPart="@{viewModel.imageUrl.startsWith(`https://nedrug.mfds.go.kr`) ? HalfCropTransformation.CropPart.LEFT : null}"
+                    app:imagePlaceHolder="@{@drawable/baseline_medication_24}"
+                    app:imageUrl="@{viewModel.imageUrl}" />
+
+                <Space
+                    android:layout_width="16dp"
+                    android:layout_height="0dp" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -47,15 +64,6 @@
                         android:textColor="?android:attr/textColorSecondary" />
                 </LinearLayout>
 
-                <Space
-                    android:layout_width="16dp"
-                    android:layout_height="0dp" />
-
-                <ImageView
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-                    android:scaleType="centerCrop" />
-
             </LinearLayout>
 
             <Space
@@ -64,34 +72,35 @@
 
             <com.google.android.material.chip.ChipGroup
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_gravity="end">
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="@{viewModel.breakfast}"
+                    android:onClick="@{()->viewModel.setBreakfast(!viewModel.breakfast)}"
                     android:text="아침"
-                    app:chipIcon="@drawable/baseline_medication_24"
-                    app:chipIconVisible="@{!viewModel.breakfast}" />
+                    android:visibility="@{viewModel.breakfastEnabled ? View.VISIBLE : View.GONE}" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="@{viewModel.lunch }"
+                    android:checked="@{viewModel.lunch}"
+                    android:onClick="@{()->viewModel.setLunch(!viewModel.lunch)}"
                     android:text="점심"
-                    app:chipIcon="@drawable/baseline_medication_24"
-                    app:chipIconVisible="@{!viewModel.lunch}" />
+                    android:visibility="@{viewModel.lunchEnabled ? View.VISIBLE : View.GONE}" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="@{viewModel.dinner}"
+                    android:onClick="@{()->viewModel.setDinner(!viewModel.dinner)}"
                     android:text="저녁"
-                    app:chipIcon="@drawable/baseline_medication_24"
-                    app:chipIconVisible="@{!viewModel.dinner}" />
+                    android:visibility="@{viewModel.dinnerEnabled ? View.VISIBLE : View.GONE}" />
 
             </com.google.android.material.chip.ChipGroup>
         </LinearLayout>

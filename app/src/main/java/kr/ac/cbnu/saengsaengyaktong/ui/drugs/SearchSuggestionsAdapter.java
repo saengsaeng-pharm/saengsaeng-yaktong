@@ -10,26 +10,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import kr.ac.cbnu.saengsaengyaktong.api.ProductInfo;
 import kr.ac.cbnu.saengsaengyaktong.databinding.SearchSuggestionItemBinding;
 
-public class SearchSuggestionsAdapter extends ListAdapter<SearchSuggestion, SearchSuggestionsAdapter.ViewHolder> {
+public class SearchSuggestionsAdapter extends ListAdapter<ProductInfo, SearchSuggestionsAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final SearchSuggestionItemBinding binding;
-        private SearchSuggestion item;
+        private ProductInfo item;
 
         public ViewHolder(SearchSuggestionItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }
 
-        protected void setItem(SearchSuggestion item) {
+        protected void setItem(ProductInfo item) {
             this.item = item;
             binding.setItem(item);
         }
     }
 
     public interface OnClickListener {
-        void onClick(SearchSuggestion item);
+        void onClick(ProductInfo item);
     }
 
     private OnClickListener onClickListener;
@@ -38,8 +39,8 @@ public class SearchSuggestionsAdapter extends ListAdapter<SearchSuggestion, Sear
         super(DIFF_CALLBACK);
     }
 
-    public void setItems(List<? extends SearchSuggestion> items) {
-        submitList((List<SearchSuggestion>) items);
+    public void setItems(List<? extends ProductInfo> items) {
+        submitList((List<ProductInfo>) items);
     }
 
     public void setOnClickListener(OnClickListener listener) {
@@ -48,7 +49,7 @@ public class SearchSuggestionsAdapter extends ListAdapter<SearchSuggestion, Sear
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        final SearchSuggestion item = getItem(position);
+        final ProductInfo item = getItem(position);
         viewHolder.setItem(item);
     }
 
@@ -67,15 +68,15 @@ public class SearchSuggestionsAdapter extends ListAdapter<SearchSuggestion, Sear
         return viewHolder;
     }
 
-    public static final DiffUtil.ItemCallback<SearchSuggestion> DIFF_CALLBACK =
-            new DiffUtil.ItemCallback<SearchSuggestion>() {
+    public static final DiffUtil.ItemCallback<ProductInfo> DIFF_CALLBACK =
+            new DiffUtil.ItemCallback<ProductInfo>() {
                 @Override
-                public boolean areItemsTheSame(@NonNull SearchSuggestion oldItem, @NonNull SearchSuggestion newItem) {
+                public boolean areItemsTheSame(@NonNull ProductInfo oldItem, @NonNull ProductInfo newItem) {
                     return oldItem.getId().equals(newItem.getId());
                 }
 
                 @Override
-                public boolean areContentsTheSame(@NonNull SearchSuggestion oldItem, @NonNull SearchSuggestion newItem) {
+                public boolean areContentsTheSame(@NonNull ProductInfo oldItem, @NonNull ProductInfo newItem) {
                     return oldItem.getId().equals(newItem.getId()); // should be fixed
                 }
             };

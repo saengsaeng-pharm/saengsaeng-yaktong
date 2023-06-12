@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    tools:context=".ui.foods.SelectFunctionalityFragment"
+    android:padding="24dp">
+
+    <TextView
+        style="@style/TextAppearance.Material3.TitleLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="원하는 효능을 선택하세요." />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:chipSpacingHorizontal="8dp"
+        app:chipSpacingVertical="0dp"
+        app:singleLine="false">
+
+        <!-- 장 건강 -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_intestine_health"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="장 건강" />
+
+        <!-- 관절/뼈 건강 -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_bone_health"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="관절/뼈 건강" />
+
+        <!-- 체지방 감소 -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_fat_reduction"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="체지방 감소" />
+
+        <!-- 면역 기능 개선 -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_immune_improvement"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="면역 기능 개선" />
+
+        <!-- 피부 건강 -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_skin_health"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="피부 건강" />
+
+        <!-- 기억력 개선 -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_memory_improvement"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="기억력 개선" />
+
+        <!-- 간 건강 -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_liver_health"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="간 건강" />
+
+        <!-- 눈 건강 -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_eye_health"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="눈 건강" />
+
+        <!-- 칼슘 흡수 촉진 -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_calcium_absorption"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="칼슘 흡수 촉진" />
+
+        <!-- 운동수행 능력 -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_exercise_ability"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="운동수행 능력" />
+
+        <!-- 피로 개선 -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_fatigue_improvement"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="피로 개선" />
+
+        <!-- 수면질 개선 -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_sleep_improvement"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수면질 개선" />
+
+        <!-- 근력 개선 -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_muscle_improvement"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="근력 개선" />
+
+        <!-- 구강 건강 -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_oral_health"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="구강 건강" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="다음" />
+
+</LinearLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.drugs.DrugOverviewFragment">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="info"
+            type="kr.ac.cbnu.saengsaengyaktong.api.public_data_portal.DrugInfo" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <include
+                layout="@layout/info_card"
+                android:visibility="@{info.efficacy != null ? View.VISIBLE : View.GONE}"
+                app:body="@{info.efficacy}"
+                app:title="@{`효능`}" />
+
+            <include
+                layout="@layout/info_card"
+                android:visibility="@{info.useMethod != null ? View.VISIBLE : View.GONE}"
+                app:body="@{info.useMethod}"
+                app:title="@{`사용법`}" />
+
+            <include
+                layout="@layout/info_card"
+                android:visibility="@{info.warning != null ? View.VISIBLE : View.GONE}"
+                app:body="@{info.warning}"
+                app:title="@{`경고`}" />
+
+            <include
+                layout="@layout/info_card"
+                android:visibility="@{info.attention != null ? View.VISIBLE : View.GONE}"
+                app:body="@{info.attention}"
+                app:title="@{`주의사항`}" />
+
+            <include
+                layout="@layout/info_card"
+                android:visibility="@{info.interactions != null ? View.VISIBLE : View.GONE}"
+                app:body="@{info.interactions}"
+                app:title="@{`상호작용`}" />
+
+            <include
+                layout="@layout/info_card"
+                android:visibility="@{info.sideEffects != null ? View.VISIBLE : View.GONE}"
+                app:body="@{info.sideEffects}"
+                app:title="@{`부작용`}" />
+
+            <include
+                layout="@layout/info_card"
+                android:visibility="@{info.depositMethod != null ? View.VISIBLE : View.GONE}"
+                app:body="@{info.depositMethod}"
+                app:title="@{`보관법`}" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

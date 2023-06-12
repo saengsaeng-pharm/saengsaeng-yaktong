@@ -7,25 +7,30 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="kr.ac.cbnu.saengsaengyaktong.ui.drugs.MedicineListFragment"
+        android:name="kr.ac.cbnu.saengsaengyaktong.ui.drugs.DrugMainFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_medicine_list" />
+        tools:layout="@layout/fragment_drug_main" />
 
     <fragment
-        android:id="@+id/navigation_community"
-        android:name="kr.ac.cbnu.saengsaengyaktong.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_reviews"
+        android:name="kr.ac.cbnu.saengsaengyaktong.ui.foods.SelectFunctionalityFragment"
         android:label="@string/title_community"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_select_functionality" />
+    <fragment
+        android:id="@+id/navigation_recommendations"
+        android:name="kr.ac.cbnu.saengsaengyaktong.ui.foods.FoodRecommendationsFragment"
+        android:label="추천 약"
+        tools:layout="@layout/fragment_food_recommendations" />
 
     <fragment
         android:id="@+id/navigation_map"
         android:name="kr.ac.cbnu.saengsaengyaktong.ui.nearby.NearbyFragment"
         android:label="@string/title_nearby"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_nearby" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="kr.ac.cbnu.saengsaengyaktong.ui.notifications.NotificationsFragment"
+        android:name="kr.ac.cbnu.saengsaengyaktong.ui.account.ProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_profile" />
 </navigation>

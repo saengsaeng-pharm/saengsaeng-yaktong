@@ -34,11 +34,6 @@
         tools:replace="android:label"
         tools:targetApi="31">
         <activity
-            android:name=".ui.drugs.MedicinePlanActivity"
-            android:exported="false"
-            android:label="@string/title_activity_test"
-            android:theme="@style/Theme.SaengSaengYaktong" />
-        <activity
             android:name=".ui.account.SignInActivity"
             android:exported="false"
             android:label="@string/label_sign_in" />
@@ -65,7 +60,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.drugs.MedicineInfoActivity"
+            android:name=".ui.drugs.DrugInfoActivity"
             android:exported="false"
             android:label="약 정보"
             android:theme="@style/Theme.SaengSaengYaktong.NoActionBar">
@@ -90,6 +85,39 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
         </activity>
+        <activity
+            android:name=".ui.schedules.DrugScheduleActivity"
+            android:exported="false"
+            android:label="복약 등록"></activity>
+
+        <activity
+            android:name=".ui.questionnaire.CheckTest"
+            android:exported="false"
+            android:label="건강 상태 설문조사"></activity>
+        <activity
+            android:name=".ui.questionnaire.surveyActivity8"
+            android:exported="false" />
+        <activity
+            android:name=".ui.questionnaire.surveyActivity7"
+            android:exported="false" />
+        <activity
+            android:name=".ui.questionnaire.surveyActivity6"
+            android:exported="false" />
+        <activity
+            android:name=".ui.questionnaire.surveyActivity5"
+            android:exported="false" />
+        <activity
+            android:name=".ui.questionnaire.surveyActivity4"
+            android:exported="false" />
+        <activity
+            android:name=".ui.questionnaire.surveyActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".ui.questionnaire.surveyActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".ui.questionnaire.surveyActivity1"
+            android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -94,4 +94,8 @@ dependencies {
     // T map
     implementation files('libs/vsm-tmap-sdk-v2-android-1.6.60.aar')
     implementation files('libs/tmap-sdk-1.2.aar')
+
+    // RxJava + RxAndroid
+    implementation "io.reactivex.rxjava3:rxjava:3.1.6"
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
 }

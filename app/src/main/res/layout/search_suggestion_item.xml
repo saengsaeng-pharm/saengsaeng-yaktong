@@ -12,7 +12,7 @@
 
         <variable
             name="item"
-            type="kr.ac.cbnu.saengsaengyaktong.ui.drugs.SearchSuggestion" />
+            type="kr.ac.cbnu.saengsaengyaktong.api.ProductInfo" />
 
     </data>
 

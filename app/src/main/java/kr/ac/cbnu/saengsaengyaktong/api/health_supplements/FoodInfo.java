@@ -10,10 +10,16 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import kr.ac.cbnu.saengsaengyaktong.ui.drugs.SearchSuggestion;
+import kr.ac.cbnu.saengsaengyaktong.api.ProductInfo;
+import kr.ac.cbnu.saengsaengyaktong.api.ProductType;
 
-public class FoodInfo implements SearchSuggestion, Parcelable {
+public class FoodInfo implements ProductInfo, Parcelable {
     private static final String THUMBNAIL_PREFIX = "https://health-functional-food.s3.ap-northeast-2.amazonaws.com/saved/";
+
+    @Override
+    public ProductType getType() {
+        return ProductType.HEALTH_FOOD;
+    }
 
     @SerializedName("report_no")
     private String id;
@@ -46,6 +52,7 @@ public class FoodInfo implements SearchSuggestion, Parcelable {
         thumbnails = in.createStringArrayList();
         views = in.readInt();
     }
+
 
     @Override
     public String getId() {

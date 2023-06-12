@@ -34,7 +34,7 @@ import kr.ac.cbnu.saengsaengyaktong.api.public_data_portal.DrugInfoServiceWrappe
 import kr.ac.cbnu.saengsaengyaktong.api.public_data_portal.DrugListResponse;
 import kr.ac.cbnu.saengsaengyaktong.api.public_data_portal.PublicDataPortalService;
 import kr.ac.cbnu.saengsaengyaktong.databinding.ActivityDrugDetectionBinding;
-import kr.ac.cbnu.saengsaengyaktong.ui.drugs.MedicineInfoActivity;
+import kr.ac.cbnu.saengsaengyaktong.ui.drugs.DrugInfoActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -100,10 +100,11 @@ public class DrugDetectionActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
+        currentPhotoPath = getIntent().getStringExtra("photo_path");
+
         binding.getRoot().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                currentPhotoPath = getIntent().getStringExtra("photo_path");
                 setViewAndDetect(getCapturedImage());
 
                 binding.getRoot().getViewTreeObserver().removeOnGlobalLayoutListener(this);
@@ -112,7 +113,7 @@ public class DrugDetectionActivity extends AppCompatActivity {
     }
 
     private void onItemClick(DrugDetectionResult item) {
-        final Intent intent = new Intent(this, MedicineInfoActivity.class);
+        final Intent intent = new Intent(this, DrugInfoActivity.class);
         intent.putExtra("drugInfo", item.getInfo());
 
         startActivity(intent);

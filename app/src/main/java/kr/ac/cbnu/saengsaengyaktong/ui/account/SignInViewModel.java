@@ -39,11 +39,11 @@ public class SignInViewModel extends ViewModel {
         return !TextUtils.isEmpty(password) && password.length() >= 6;
     }
 
-    public LiveData<String> getEmail() {
+    public MutableLiveData<String> getEmail() {
         return handle.getLiveData(EMAIL_KEY);
     }
 
-    public LiveData<String> getPassword() {
+    public MutableLiveData<String> getPassword() {
         return handle.getLiveData(PASSWORD_KEY);
     }
 

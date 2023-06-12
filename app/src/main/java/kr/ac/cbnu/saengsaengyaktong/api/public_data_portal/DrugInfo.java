@@ -7,10 +7,11 @@ import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Nullable;
 
-import kr.ac.cbnu.saengsaengyaktong.ui.drugs.SearchSuggestion;
+import kr.ac.cbnu.saengsaengyaktong.api.ProductInfo;
+import kr.ac.cbnu.saengsaengyaktong.api.ProductType;
 import kr.ac.cbnu.saengsaengyaktong.utils.StringUtils;
 
-public class DrugInfo implements SearchSuggestion, Parcelable {
+public class DrugInfo implements ProductInfo, Parcelable {
     @SerializedName("entpName")
     private String companyName;
 
@@ -64,6 +65,11 @@ public class DrugInfo implements SearchSuggestion, Parcelable {
         sideEffects = in.readString();
         depositMethod = in.readString();
         imageUrl = in.readString();
+    }
+
+    @Override
+    public ProductType getType() {
+        return ProductType.DRUG;
     }
 
     public String getCompanyName() {

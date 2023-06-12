@@ -57,19 +57,19 @@ public class SignUpViewModel extends ViewModel {
         return !TextUtils.isEmpty(passwordConfirm) && passwordConfirm.equals(getPassword().getValue());
     }
 
-    public LiveData<String> getEmail() {
+    public MutableLiveData<String> getEmail() {
         return handle.getLiveData(EMAIL_KEY);
     }
 
-    public LiveData<String> getPassword() {
+    public MutableLiveData<String> getPassword() {
         return handle.getLiveData(PASSWORD_KEY);
     }
 
-    public LiveData<String> getPasswordConfirm() {
+    public MutableLiveData<String> getPasswordConfirm() {
         return handle.getLiveData(PASSWORD_CONFIRM_KEY);
     }
 
-    public LiveData<String> getName() {
+    public MutableLiveData<String> getName() {
         return handle.getLiveData(NAME_KEY);
     }
 
@@ -81,7 +81,7 @@ public class SignUpViewModel extends ViewModel {
         return handle.getLiveData(GENDER_KEY);
     }
 
-    public LiveData<Boolean> getAgreement() {
+    public MutableLiveData<Boolean> getAgreement() {
         return handle.getLiveData(AGREEMENT_KEY);
     }
 

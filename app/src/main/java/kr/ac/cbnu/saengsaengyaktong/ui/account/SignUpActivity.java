@@ -18,6 +18,8 @@ import kr.ac.cbnu.saengsaengyaktong.R;
 import kr.ac.cbnu.saengsaengyaktong.databinding.ActivitySignUpBinding;
 
 public class SignUpActivity extends AppCompatActivity {
+    private static final String TAG = "SignUpActivity";
+
     private final TimeZone UTC_TIMEZONE = TimeZone.getTimeZone("UTC");
 
     private ActivitySignUpBinding binding;
@@ -59,7 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
             viewModel.setBirthDate(calendar.getTime());
         });
 
-        datePicker.show(getSupportFragmentManager(), "");
+        datePicker.show(getSupportFragmentManager(), TAG);
     }
 
     public void onComplete(View view) {
